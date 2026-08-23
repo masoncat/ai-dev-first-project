@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="一个在浏览器本地运行的文本整理器练习项目" />
+    <title>文本整理器 · AI 开发练习</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="文本整理器首页">
+          <span class="brand-mark">T</span>
+          <span>TEXT / 01</span>
+        </a>
+        <span class="status-pill"><span class="status-dot"></span>本地运行</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">AI 开发入门 · 第一个可运行项目</p>
+        <h1 id="page-title">把一段杂乱文字，<em>整理成下一步。</em></h1>
+        <p class="intro-copy">先不接账号、数据库和云端服务。这个版本在浏览器里完成一条最小闭环：粘贴、整理、检查、修改。</p>
+      </section>
+
+      <section class="workspace" aria-label="文本整理工作区">
+        <div class="panel input-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">01 / 输入</p>
+              <h2>原始文字</h2>
+            </div>
+            <button class="text-button" id="example-button" type="button">填入示例</button>
+          </div>
+          <label class="sr-only" for="source-text">粘贴需要整理的文字</label>
+          <textarea id="source-text" placeholder="粘贴一段会议记录、工作草稿或零散想法……"></textarea>
+          <div class="input-meta">
+            <span>本地规则模式，不上传内容</span>
+            <span id="source-count">0 / 5000</span>
+          </div>
+          <div class="action-row">
+            <button class="primary-button" id="organize-button" type="button"><span>整理文本</span><span aria-hidden="true">↗</span></button>
+            <button class="secondary-button" id="reset-button" type="button">清空</button>
+          </div>
+          <p class="status-line" id="status" data-tone="neutral" role="status">等待输入</p>
+          <p class="error-message" id="error-message" role="alert" hidden></p>
+        </div>
+
+        <div class="panel result-panel" id="results" hidden>
+          <div class="panel-heading result-heading">
+            <div>
+              <p class="panel-kicker">02 / 输出</p>
+              <h2>整理结果</h2>
+            </div>
+            <span class="result-label">可继续修改</span>
+          </div>
+
+          <article class="result-section title-section">
+            <p class="result-kicker">建议标题</p>
+            <h3 id="result-title"></h3>
+          </article>
+
+          <article class="result-section">
+            <div class="section-title-row">
+              <p class="result-kicker">关键要点</p>
+              <span class="section-number">A</span>
+            </div>
+            <ol class="result-list" id="result-points"></ol>
+          </article>
+
+          <article class="result-section questions-section">
+            <div class="section-title-row">
+              <p class="result-kicker">待确认问题</p>
+              <span class="section-number">B</span>
+            </div>
+            <ol class="result-list" id="result-questions"></ol>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer-note">
+        <span>第一个项目的完成标准</span>
+        <span>页面能打开 · 状态有反馈 · 代码可回退</span>
+      </footer>
+    </main>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
